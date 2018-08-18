@@ -13,7 +13,15 @@ end
 
 
 def get_contestant_name(data, occupation)
-  # code here
+  name_of_woman_with_occupation = nil 
+  data.each do |season_number, contestants_array|
+    contestants_array.each do |contestant_hash|
+       if contestant_hash["occupation"] == occupation
+       name_of_woman_with_occupation = contestant_hash["name"]
+      end 
+    end
+  end 
+  name_of_woman_with_occupation
 end
 
 

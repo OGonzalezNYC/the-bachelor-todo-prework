@@ -39,7 +39,16 @@ end
 
 
 def get_occupation(data, hometown)
-  # code here
+  first_contestant_occupation = nil 
+  data.each do |season_number, contestants_array|
+    contestants_array.each do |contestant_hash|
+      if contestant_hash["hometown"] == hometown
+      first_contestant_occupation = contestant_hash["occupation"]
+      break 
+      end 
+    end 
+  end 
+  first_contestant_occupation
 end
 
 

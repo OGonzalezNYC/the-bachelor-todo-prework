@@ -2,8 +2,7 @@ require "pry"
 
 def get_first_name_of_season_winner(data, season)
   winner_first_name = nil 
-  contestants_array = data[season]
-  contestants_array.each do |contestant_hash|
+   data[season].each do |contestant_hash|
     if contestant_hash["status"] == "Winner"
        winner_first_name = contestant_hash["name"].split(" ")[0]
     end 
@@ -53,6 +52,11 @@ end
 
 
 def get_average_age_for_season(data, season)
-  data.each do |season_number, contestants_array|
-    contestants_array.each do |contestant_hash|
+  total_of_all_ages = 0
+  avaerage_age = 0 
+  data[season].each do |contestant_hash|
+      total_of_all_ages += contestant_hash["age"].to_f 
+      average_age = (total_of_all_ages / season.length) + 0.5 
+  end
+  average_age  
 end

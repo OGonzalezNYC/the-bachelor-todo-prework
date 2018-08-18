@@ -55,8 +55,10 @@ def get_average_age_for_season(data, season)
   total_of_all_ages = 0
   avaerage_age = 0 
   data[season].each do |contestant_hash|
-      total_of_all_ages += contestant_hash["age"].to_f 
-      average_age = (total_of_all_ages / season.length) + 0.5 
+      total_of_all_ages += contestant_hash["age"].to_f  
   end
-  average_age  
+#  binding.pry
+  # data[season].length => 25      data["season 10"].length => 25    total_of_all_ages => 644
+  average_age = total_of_all_ages / data[season].length
+  (average_age += 0.5).to_i
 end
